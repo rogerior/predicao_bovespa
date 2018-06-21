@@ -1,6 +1,4 @@
-# sussuarana
-
-## Predição do desempenho das ações da bolsa de valores BOVESPA
+# Predição do desempenho das ações da bolsa de valores BOVESPA
 
 
 ### Proposta de estrutura do sistema
