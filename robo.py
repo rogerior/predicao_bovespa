@@ -5,7 +5,7 @@ import csv
 from sklearn import tree, svm, naive_bayes, neighbors, ensemble, calibration, gaussian_process, semi_supervised, discriminant_analysis
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, NMF, FastICA
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from datetime import datetime
@@ -42,7 +42,7 @@ tecnicas = [ ('AdaBoostClassifier', sklearn.ensemble.weight_boosting.AdaBoostCla
              ('LogisticRegressionCV', sklearn.linear_model.logistic.LogisticRegressionCV()),
              ('MLPClassifier', sklearn.neural_network.multilayer_perceptron.MLPClassifier()),
              ('MultinomialNB', sklearn.naive_bayes.MultinomialNB()),
-             ('NearestCentroid', sklearn.neighbors.nearest_centroid.NearestCentroid()),
+             #('NearestCentroid', sklearn.neighbors.nearest_centroid.NearestCentroid()),
              #('NuSVC', sklearn.svm.classes.NuSVC()), # erro de outlier
              ('PassiveAggressiveClassifier', sklearn.linear_model.passive_aggressive.PassiveAggressiveClassifier()),
              ('Perceptron', sklearn.linear_model.perceptron.Perceptron()),
@@ -611,8 +611,8 @@ def robo(acao):
 
         gravarLog('info', 'Finalizado execução com a ação: ' + acao)
 
-    except Exception:
-
+    except:
+        
         print('*********** erro_geral, ação: ' + acao + ' ***********')
         gravarLog('erro', 'erro geral, ação: ' + acao)
         pass
